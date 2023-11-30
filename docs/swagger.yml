@@ -1,0 +1,14 @@
+openapi: '3.0.3'
+info:
+  version: '0.1'
+  title: 'Fastify API'
+  description: 'API documentation for Fastify application'
+servers:
+  - url: 'http://localhost:5000'
+paths:
+  /quizzes:
+    get:
+      summary: 'Get all quizzes'
+      responses:
+        '200':
+          description: 'Successful response'
