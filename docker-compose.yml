@@ -7,6 +7,11 @@ services:
     volumes:
       - .:/app
     command: npm run dev
+  db:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=password
   swagger:
     image: swaggerapi/swagger-ui
     ports:
