@@ -5,10 +5,70 @@ info:
   description: 'API documentation for Fastify application'
 servers:
   - url: 'http://localhost:5000'
+tags:
+  - name: 'Users'
+    description: 'Operations about users'
+  - name: 'Quizzes'
+    description: 'Operations about quizzes'
 paths:
+  /users:
+    get:
+      summary: ユーザー一覧取得
+      tags:
+        - "Users"
+      responses:
+        '200':
+          description: 'User updated successfully'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  email:
+                    type: string
+    post:
+      summary: ユーザー登録
+      tags:
+        - "Users"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                age:
+                  type: integer
+              required:
+                - name
+                - email
+      responses:
+        '201':
+          description: 'User created successfully'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  email:
+                    type: string
   /quizzes:
     get:
       summary: 'Get all quizzes'
+      tags:
+        - "Quizzes"
       responses:
         '200':
           description: 'Successful response'
